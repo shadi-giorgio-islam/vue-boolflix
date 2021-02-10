@@ -28,6 +28,19 @@
           </nav>
         </header>
         <!-- fine header -->
+        <!-- inizio main -->
+        <main>
+          <div class="movies">
+            <div v-for='(movie, index) in movies'  class="movie">
+              <img v-if='!(movie.backdrop_path == null)' :src="'https://image.tmdb.org/t/p/w342/' + movie.backdrop_path" :alt="movie.original_title">
+              <img v-else src="https://variety.com/wp-content/uploads/2014/07/netflix-logo.jpg?w=1000" alt="missing-photo">
+              <div class="movie-layer">
+
+              </div>
+            </div>
+          </div>
+        </main>
+        <!-- fine main -->
       </div>
       <!-- javascript -->
       <script src="js/script.js" charset="utf-8"></script>

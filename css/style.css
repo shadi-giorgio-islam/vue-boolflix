@@ -8,6 +8,7 @@
 }
 body{
   font-family: 'Roboto', sans-serif;
+  background-color: grey;
 }
 ul{
   list-style: none;
@@ -64,3 +65,29 @@ header nav .search-bar a i{
   margin-left: 10px;
 }
 /* fine menu */
+/* inizio main */
+.movies{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+.movies .movie{
+  position: relative;
+  margin: 20px 0;
+}
+.movies .movie img{
+  height: 200px;
+  width: 360px;
+}
+.movies .movie .movie-layer{
+  height: 200px;
+  width: 360px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.movies .movie .movie-layer:hover{
+  background-color: rgba(0, 0, 0, 0.7);
+}
+/* fine main */
