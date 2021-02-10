@@ -8,7 +8,7 @@
 }
 body{
   font-family: 'Roboto', sans-serif;
-  background-color: grey;
+  background-color: #211F1F;
 }
 ul{
   list-style: none;
@@ -86,8 +86,26 @@ header nav .search-bar a i{
   position: absolute;
   top: 0;
   left: 0;
+  opacity: 0;
 }
 .movies .movie .movie-layer:hover{
-  background-color: rgba(0, 0, 0, 0.7);
+  opacity: 1;
+  background-color: rgba(0, 0, 0, 0.8);
+  border: 4px solid white;
+}
+.movies .movie .movie-layer h2{
+  color: white;
+  font-size: 20px;
+  margin: 10px 0 0 20px;
+}
+.movies .movie .movie-layer h3{
+  color: white;
+  font-size: 15px;
+  margin: 10px 0 0 20px;
+}
+.movies .movie .movie-layer img{
+  height: 20px;
+  width: 30px;
+  margin: 10px 0 0 20px;
 }
 /* fine main */
