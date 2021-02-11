@@ -83,6 +83,7 @@ header nav .search-bar a i{
 .movies .movie .movie-layer{
   height: 200px;
   width: 360px;
+  padding: 10px 0 0 20px;
   position: absolute;
   top: 0;
   left: 0;
@@ -96,16 +97,24 @@ header nav .search-bar a i{
 .movies .movie .movie-layer h2{
   color: white;
   font-size: 20px;
-  margin: 10px 0 0 20px;
+  margin: 10px 0;
 }
 .movies .movie .movie-layer h3{
   color: white;
   font-size: 15px;
-  margin: 10px 0 0 20px;
+  margin: 10px 0;
 }
 .movies .movie .movie-layer img{
   height: 20px;
   width: 30px;
-  margin: 10px 0 0 20px;
+  margin: 5px 0;
+}
+.movies .movie .movie-layer .vote{
+  display: inline-block;
+  margin: 5px 0;
+}
+
+.movies .movie .movie-layer .vote i{
+  color: yellow;
 }
 /* fine main */
