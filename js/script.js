@@ -3,7 +3,8 @@ var app = new Vue({
   data:{
     query: '',
     apiKey: '61494116b9bd09ea4e4a494c360517b8',
-    movies: []
+    movies: [],
+    search: 'movie'
   },
   methods:{
     searchMovie(){
@@ -31,9 +32,16 @@ var app = new Vue({
           }
         })
         .then((result)=>{
-          console.log(result.data);
+          this.movies = result.data.results;
+          console.log(this.movies);
         })
       .catch((error) => alert('errori'));
+    },
+    changeMovie(){
+      this.search = 'movie';
+    },
+    changeTvshow(){
+      this.search = 'show';
     }
   }
 });
