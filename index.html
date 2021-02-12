@@ -81,10 +81,13 @@
             <p>{{movies[indice].overview}}</p>
             <h4><span>genere1</span><span>genere1</span></h4>
             <h3>Cast</h3>
-            <div v-for='i in 5' class="img">
-              <img src="http://t1.gstatic.com/images?q=tbn:ANd9GcQLTV9UBjZ5mqVuQYDiCianmf7mtcUhPrDH4GYGPfaYFuCJsy1OSbPLMLfRXx2H" alt="cast">
-              <h3>Kit Harington</h3>
-              <h4>Jon snow</h4>
+            <div class="cast">
+              <div v-for='actor in cast' class="img">
+                <img v-if="actor.profile_path == null" src="https://i.pinimg.com/originals/f6/97/4e/f6974e017d3f6196c4cbe284ee3eaf4e.png" alt="cast">
+                <img v-else :src="'https://image.tmdb.org/t/p/w185/' + actor.profile_path" alt="cast">
+                <h3>{{actor.name}}</h3>
+                <h4>{{actor.character}}</h4>
+              </div>
             </div>
             <a href="#" @click='closeBox'><i class="fas fa-window-close fa-2x"></i></a>
           </div>

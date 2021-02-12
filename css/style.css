@@ -213,18 +213,24 @@ header nav .search-bar a i{
   right: 40px;
 }
 /* info box img */
-.info-box .img{
+.info-box .cast{
+  overflow-x: scroll;
+  display: flex;
+  flex-direction: row;
+}
+.info-box .cast .img{
   width: calc(100% / 5);
   text-align: center;
-  display: inline-block;
+  margin: 0 5px 10px 0;
 }
-.info-box .img img{
+.info-box .cast .img img{
   height: 300px;
+  width: 200px;
 }
-.info-box .img h3{
+.info-box .cast .img h3{
   font-size: 25px;
 }
-.info-box .img h4{
+.info-box .cast .img h4{
   font-size: 20px;
   font-weight: 400;
 }

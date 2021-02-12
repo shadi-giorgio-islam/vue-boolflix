@@ -7,7 +7,8 @@ var app = new Vue({
     search: 'movie',
     display: 'none',
     displayBox: 'none',
-    indice: 0
+    indice: 0,
+    cast: []
   },
   methods:{
     searchMovie(){
@@ -46,12 +47,24 @@ var app = new Vue({
       this.search = 'movie';
     },
     changeTvshow(){
-      this.search = 'show';
+      this.search = 'tv';
     },
     showBox(index){
       this.displayBox = 'active';
       this.indice = index;
       console.log(this.indice);
+      axios
+        .get('https://api.themoviedb.org/3/'+ this.search +'/'+this.movies[index].id+'/credits',{
+          params:{
+            api_key: this.apiKey,
+            language: 'it-IT'
+          }
+        })
+        .then((result)=>{
+          this.cast = result.data.cast;
+          console.log(this.cast);
+        })
+      .catch((error) => alert('errori'));
     },
     closeBox(){
       this.displayBox = 'none';
