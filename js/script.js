@@ -6,7 +6,8 @@ var app = new Vue({
     movies: [],
     search: 'movie',
     display: 'none',
-    displayBox: 'none'
+    displayBox: 'none',
+    indice: 0
   },
   methods:{
     searchMovie(){
@@ -47,8 +48,10 @@ var app = new Vue({
     changeTvshow(){
       this.search = 'show';
     },
-    showBox(){
+    showBox(index){
       this.displayBox = 'active';
+      this.indice = index;
+      console.log(this.indice);
     },
     closeBox(){
       this.displayBox = 'none';
