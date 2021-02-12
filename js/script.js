@@ -5,7 +5,8 @@ var app = new Vue({
     apiKey: '61494116b9bd09ea4e4a494c360517b8',
     movies: [],
     search: 'movie',
-    display: 'none'
+    display: 'none',
+    displayBox: 'none'
   },
   methods:{
     searchMovie(){
@@ -45,6 +46,12 @@ var app = new Vue({
     },
     changeTvshow(){
       this.search = 'show';
+    },
+    showBox(){
+      this.displayBox = 'active';
+    },
+    closeBox(){
+      this.displayBox = 'none';
     }
   }
 });
