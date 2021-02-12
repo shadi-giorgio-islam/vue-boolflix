@@ -45,8 +45,13 @@ header nav ul li a{
   font-size: 20px;
   font-weight: 400;
 }
-header nav ul li a:hover,
-header nav ul li a:active{
+header nav ul li:nth-child(2) a.movie{
+  color: white;
+}
+header nav ul li:last-child a.show{
+  color: white;
+}
+header nav ul li a:hover{
   color: white;
 }
 header nav .search-bar{
@@ -60,6 +65,10 @@ header nav .search-bar input{
   border: none;
   border-bottom: 1px solid white;
 }
+header nav .search-bar input::placeholder{
+  color: rgba(255, 255, 255, 0.60);
+  font-size: 18px;
+}
 header nav .search-bar a i{
   color: white;
   margin-left: 10px;
@@ -67,11 +76,35 @@ header nav .search-bar a i{
 /* fine menu */
 /* inizio main */
 .movies{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
+  width: 80%;
+  margin: auto;
+  display: none;
+  flex-wrap: nowrap;
   align-items: center;
+  overflow-x: scroll;
 }
+.movies.active{
+  display: flex;
+}
+/* scrollbar */
+/* width */
+::-webkit-scrollbar {
+  width: 20px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+  border: 1px solid grey;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: red;
+  border-radius: 10px;
+}
+/* fine scrollbar */
+
 .movies .movie{
   position: relative;
   margin: 20px 0;
@@ -79,6 +112,12 @@ header nav .search-bar a i{
 .movies .movie img{
   height: 200px;
   width: 360px;
+  margin-right: 10px;
+}
+.movies .movie h2{
+  color: white;
+  font-size: 20px;
+  text-align: center;
 }
 .movies .movie .movie-layer{
   height: 200px;
@@ -97,6 +136,7 @@ header nav .search-bar a i{
 .movies .movie .movie-layer h2{
   color: white;
   font-size: 20px;
+  text-align: left;
   margin: 10px 0;
 }
 .movies .movie .movie-layer h3{

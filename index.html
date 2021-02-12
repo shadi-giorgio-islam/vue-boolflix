@@ -15,12 +15,14 @@
       <div id="app">
         <!-- inzio header -->
         <header>
+          <!-- inizio menu -->
           <nav>
             <ul>
               <li><img src="http://assets.stickpng.com/images/580b57fcd9996e24bc43c529.png" alt="logo"></li>
-              <li><a href="#" @click='changeMovie'>Movies</a></li>
-              <li><a href="#" @click='changeTvshow'>Tv Shows</a></li>
+              <li><a href="#" @click='changeMovie' :class='search'>Movies</a></li>
+              <li><a href="#" @click='changeTvshow' :class='search'>Tv Shows</a></li>
             </ul>
+            <!-- inizio search bar -->
             <div v-if="search=='movie'" class="search-bar">
               <input type="text" v-model='query' @keyup.enter='searchMovie' placeholder="Search movie">
               <a href="#" @click='searchMovie'><i class="fas fa-search"></i></a>
@@ -29,18 +31,27 @@
               <input type="text" v-model='query' @keyup.enter='searchSerie' placeholder="Search Tv Show">
               <a href="#" @click='searchSerie'><i class="fas fa-search"></i></a>
             </div>
+            <!-- fine search bar -->
           </nav>
+          <!-- fine menu -->
         </header>
         <!-- fine header -->
         <!-- inizio main -->
         <main>
-          <div class="movies">
+          <!-- inizio movies -->
+          <div class="movies" :class='display'>
+            <!-- inizio movie -->
             <div v-for='(movie, index) in movies'  class="movie">
+              <!-- inizio img -->
               <img v-if='!(movie.backdrop_path == null)' :src="'https://image.tmdb.org/t/p/w342/' + movie.backdrop_path" :alt="movie.original_title">
               <img v-else src="https://variety.com/wp-content/uploads/2014/07/netflix-logo.jpg?w=1000" alt="missing-photo">
+              <h2>{{movie.original_title}} {{movie.name}}</h2>
+              <!-- fine img -->
+              <!-- inizio layer -->
               <div class="movie-layer">
                 <h2>{{movie.original_title}} {{movie.name}}</h2>
                 <h3>{{movie.original_title}}</h3>
+                <!-- inizio lang -->
                 <div class="lang">
                   <img v-if="movie.original_language == 'en'" src="https://upload.wikimedia.org/wikipedia/commons/f/f2/Flag_of_Great_Britain_%281707%E2%80%931800%29.svg" alt="en">
                   <img v-if="movie.original_language == 'it'" src="https://upload.wikimedia.org/wikipedia/en/0/03/Flag_of_Italy.svg" alt="it">
@@ -49,13 +60,19 @@
                   <img v-if="movie.original_language == 'ja'" src="https://upload.wikimedia.org/wikipedia/en/9/9e/Flag_of_Japan.svg" alt="ja">
                   <img v-if="movie.original_language == 'zh'" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Flag_of_the_People%27s_Republic_of_China.svg/255px-Flag_of_the_People%27s_Republic_of_China.svg.png" alt="zh">
                 </div>
+                <!-- fine lang -->
+                <!-- inizio vote -->
                 <div v-for='(star, index) in 5' class="vote">
                   <i v-if="index < Math.round(movie.vote_average / 2)" class="fas fa-star"></i>
                   <i v-else class="far fa-star"></i>
                 </div>
+                <!-- fine vote -->
               </div>
+              <!-- fine layer -->
             </div>
+            <!-- fine movie -->
           </div>
+          <!-- fine movies -->
         </main>
         <!-- fine main -->
       </div>
