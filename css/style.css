@@ -48,7 +48,7 @@ header nav ul li a{
 header nav ul li:nth-child(2) a.movie{
   color: white;
 }
-header nav ul li:last-child a.show{
+header nav ul li:last-child a.tv{
   color: white;
 }
 header nav ul li a:hover{

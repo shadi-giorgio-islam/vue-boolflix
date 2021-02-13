@@ -79,7 +79,9 @@
           <div v-if="display == 'active'" class="info-box" :class='displayBox'>
             <h2>{{movies[indice].title}} {{movies[indice].name}}</h2>
             <p>{{movies[indice].overview}}</p>
-            <h4><span>genere1</span><span>genere1</span></h4>
+            <h4>
+              <span v-for="genre in selectedGenres">{{genre}}</span>
+            </h4>
             <h3>Cast</h3>
             <div class="cast">
               <div v-for='actor in cast' class="img">
