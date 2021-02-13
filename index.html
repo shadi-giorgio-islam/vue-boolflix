@@ -38,6 +38,7 @@
         <!-- fine header -->
         <!-- inizio main -->
         <main>
+          <h2 :class='display'>Hai cercato "{{query}}"</h2>
           <!-- inizio movies -->
           <div class="movies" :class='display'>
             <!-- inizio movie -->
@@ -95,6 +96,82 @@
           </div>
           <!-- fine info box -->
           <!-- fine movies -->
+          <!-- inizio top rated -->
+          <h2 :class='display'>Top Rated</h2>
+          <!-- inizio movies -->
+          <div class="movies active">
+            <!-- inizio movie -->
+            <div v-for='(movie, index) in topRated'  class="movie">
+              <!-- inizio img -->
+              <img v-if='!(movie.backdrop_path == null)' :src="'https://image.tmdb.org/t/p/w342/' + movie.backdrop_path" :alt="movie.original_title">
+              <img v-else src="https://variety.com/wp-content/uploads/2014/07/netflix-logo.jpg?w=1000" alt="missing-photo">
+              <h2>{{movie.title}} {{movie.name}}</h2>
+              <!-- fine img -->
+              <!-- inizio layer -->
+              <div class="movie-layer">
+                <h2>{{movie.title}} {{movie.name}}</h2>
+                <h3>{{movie.original_title}}</h3>
+                <!-- inizio lang -->
+                <div class="lang">
+                  <img v-if="movie.original_language == 'en'" src="https://upload.wikimedia.org/wikipedia/commons/f/f2/Flag_of_Great_Britain_%281707%E2%80%931800%29.svg" alt="en">
+                  <img v-if="movie.original_language == 'it'" src="https://upload.wikimedia.org/wikipedia/en/0/03/Flag_of_Italy.svg" alt="it">
+                  <img v-if="movie.original_language == 'de'" src="https://upload.wikimedia.org/wikipedia/en/b/ba/Flag_of_Germany.svg" alt="de">
+                  <img v-if="movie.original_language == 'fr'" src="https://upload.wikimedia.org/wikipedia/en/thumb/c/c3/Flag_of_France.svg/1200px-Flag_of_France.svg.png" alt="fr">
+                  <img v-if="movie.original_language == 'ja'" src="https://upload.wikimedia.org/wikipedia/en/9/9e/Flag_of_Japan.svg" alt="ja">
+                  <img v-if="movie.original_language == 'zh'" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Flag_of_the_People%27s_Republic_of_China.svg/255px-Flag_of_the_People%27s_Republic_of_China.svg.png" alt="zh">
+                </div>
+                <!-- fine lang -->
+                <!-- inizio vote -->
+                <div v-for='(star, index) in 5' class="vote">
+                  <i v-if="index < Math.round(movie.vote_average / 2)" class="fas fa-star"></i>
+                  <i v-else class="far fa-star"></i>
+                </div>
+                <!-- fine vote -->
+              </div>
+              <!-- fine layer -->
+            </div>
+            <!-- fine movie -->
+          </div>
+          <!-- fine movies -->
+          <!-- fine top rated -->
+          <!-- inizio most popular -->
+          <h2 :class='display'>Most popular</h2>
+          <!-- inizio movies -->
+          <div class="movies active">
+            <!-- inizio movie -->
+            <div v-for='(movie, index) in mostPopular'  class="movie">
+              <!-- inizio img -->
+              <img v-if='!(movie.backdrop_path == null)' :src="'https://image.tmdb.org/t/p/w342/' + movie.backdrop_path" :alt="movie.original_title">
+              <img v-else src="https://variety.com/wp-content/uploads/2014/07/netflix-logo.jpg?w=1000" alt="missing-photo">
+              <h2>{{movie.title}} {{movie.name}}</h2>
+              <!-- fine img -->
+              <!-- inizio layer -->
+              <div class="movie-layer">
+                <h2>{{movie.title}} {{movie.name}}</h2>
+                <h3>{{movie.original_title}}</h3>
+                <!-- inizio lang -->
+                <div class="lang">
+                  <img v-if="movie.original_language == 'en'" src="https://upload.wikimedia.org/wikipedia/commons/f/f2/Flag_of_Great_Britain_%281707%E2%80%931800%29.svg" alt="en">
+                  <img v-if="movie.original_language == 'it'" src="https://upload.wikimedia.org/wikipedia/en/0/03/Flag_of_Italy.svg" alt="it">
+                  <img v-if="movie.original_language == 'de'" src="https://upload.wikimedia.org/wikipedia/en/b/ba/Flag_of_Germany.svg" alt="de">
+                  <img v-if="movie.original_language == 'fr'" src="https://upload.wikimedia.org/wikipedia/en/thumb/c/c3/Flag_of_France.svg/1200px-Flag_of_France.svg.png" alt="fr">
+                  <img v-if="movie.original_language == 'ja'" src="https://upload.wikimedia.org/wikipedia/en/9/9e/Flag_of_Japan.svg" alt="ja">
+                  <img v-if="movie.original_language == 'zh'" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Flag_of_the_People%27s_Republic_of_China.svg/255px-Flag_of_the_People%27s_Republic_of_China.svg.png" alt="zh">
+                </div>
+                <!-- fine lang -->
+                <!-- inizio vote -->
+                <div v-for='(star, index) in 5' class="vote">
+                  <i v-if="index < Math.round(movie.vote_average / 2)" class="fas fa-star"></i>
+                  <i v-else class="far fa-star"></i>
+                </div>
+                <!-- fine vote -->
+              </div>
+              <!-- fine layer -->
+            </div>
+            <!-- fine movie -->
+          </div>
+          <!-- fine movies -->
+          <!-- fine most popular -->
         </main>
         <!-- fine main -->
       </div>

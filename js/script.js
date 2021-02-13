@@ -10,7 +10,9 @@ var app = new Vue({
     indice: 0,
     cast: [],
     genres: [],
-    selectedGenres: []
+    selectedGenres: [],
+    topRated: [],
+    mostPopular: []
   },
   methods:{
     searchMovie(){
@@ -25,7 +27,6 @@ var app = new Vue({
         .then((result)=>{
           this.movies = result.data.results;
           this.display = 'active';
-          console.log(this.movies);
         })
       .catch((error) => alert('errori'));
     },
@@ -41,7 +42,6 @@ var app = new Vue({
         .then((result)=>{
           this.movies = result.data.results;
           this.display = 'active';
-          console.log(this.movies);
         })
       .catch((error) => alert('errori'));
     },
@@ -64,7 +64,6 @@ var app = new Vue({
         }
       }
       // fine generi
-      console.log(this.selectedGenres);
       axios
         .get('https://api.themoviedb.org/3/'+ this.search +'/'+this.movies[index].id+'/credits',{
           params:{
@@ -74,7 +73,6 @@ var app = new Vue({
         })
         .then((result)=>{
           this.cast = result.data.cast;
-          console.log(this.cast);
         })
       .catch((error) => alert('errori'));
     },
@@ -93,9 +91,36 @@ var app = new Vue({
       })
       .then((result)=>{
         this.genres = result.data.genres;
-        console.log(this.genres);
       })
     .catch((error) => alert('errori'));
-    // lista generi tv shows
+    // fine lista generi tv shows
+    // top rated
+    axios
+      .get('https://api.themoviedb.org/3/movie/top_rated',{
+        params:{
+          api_key: this.apiKey,
+          language: 'it-IT'
+        }
+      })
+      .then((result)=>{
+        this.topRated = result.data.results;
+        console.log(this.topRated);
+      })
+    .catch((error) => alert('errori'));
+    // fine top rates
+    // most popular
+    axios
+      .get('https://api.themoviedb.org/3/movie/popular',{
+        params:{
+          api_key: this.apiKey,
+          language: 'it-IT'
+        }
+      })
+      .then((result)=>{
+        this.mostPopular = result.data.results;
+        console.log(this.mostPopular);
+      })
+    .catch((error) => alert('errori'));
+    // fine most popular
   }
 });
