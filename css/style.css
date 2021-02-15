@@ -185,7 +185,7 @@ main>h2.active:first-child{
   background-color: rgba(0, 0, 0, 0.9);
   padding: 40px;
   display: none;
-  position: absolute;
+  position: fixed;
   height: 100vh;
   width: 100vw;
   top: 0;
